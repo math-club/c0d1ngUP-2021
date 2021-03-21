@@ -1,6 +1,4 @@
 
-from math import sqrt
-
 
 correct_tupl = ("1", "2", "4", "6", "7")
 
@@ -8,7 +6,7 @@ def main(number):
     
     nb = 64224
     
-    number += nb
+    at = number
     number = number**2 
     number = list(str(number))
     
@@ -18,10 +16,12 @@ def main(number):
         else:
             return 0
 
-    return number
+    return at
 
-for i in range(1, 1000):
+nb_list = [number + 64224 for number in range(1, 1000)]
+
+for i in nb_list:
     outp = main(i)
     
-    if outp != 0:
-        print(sqrt(int("".join(main(i)))))
+    if outp:
+        print(main(i))
