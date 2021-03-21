@@ -42,12 +42,26 @@ def light(leds_tuple):
         except IndexError:
             pass
     if temp_leds == [1 for i in range(20)]:
-        return temp_leds
+
+        return True
     else : 
-        return 0
+        return False
 
 
 def generate_tuples():
     #pls
     tuple_list = []
+    for i in range(1,6):
+        tuple_list += list(product(range(1, 10), repeat = i))
+        
+    return tuple_list
+
+ok = generate_tuples()
+
+for i in ok:
     
+    if light(i) != False:
+        print(light(i))
+        
+print(light((9, 6, 2, 7, 1)))
+        
